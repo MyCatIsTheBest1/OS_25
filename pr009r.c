@@ -1,3 +1,4 @@
+//Однонаправленная связь через pipe между родительским и дочерним процессом
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -8,12 +9,12 @@ int main() {
 	size_t size;
 	char resstring [86];
 	if(pipe(fd) < 0) {
-		printf("Не далось создать pipe\n");
+		printf("Не удалось создать pipe\n");
 		exit(-1);
 	}	
 	result = fork();
 	if(result < 0) {
-		printf("Ошибка при выполнении fork");
+		printf("Ошибка при выполнении fork()\n");
 		exit(-1);
 	}	
 	else if(result > 0) {
